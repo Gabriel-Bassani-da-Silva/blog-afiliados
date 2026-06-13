@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Acesse as melhores ofertas do Mercado Livre com nosso link de afiliado exclusivo.">
-    <meta name="keywords" content="ofertas, promoções, dicas de compra, afiliado">
-    <meta name="author" content="Blog de Ofertas">
-    <title>Ofertas - Link de Afiliado</title>
+    <meta name="description" content="Descubra as melhores recomendações de produtos e ofertas selecionadas especialmente para você.">
+    <meta name="keywords" content="recomendações, produtos, ofertas, compras">
+    <meta name="author" content="Recomendações">
+    <title>Minhas Recomendações - Produtos Selecionados</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,12 +14,11 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h1>🛍️ Ofertas ML</h1>
+                <h1>⭐ Recomendações</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#indicacoes">Indicações</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a href="#recomendacao-hoje">Hoje</a></li>
+                <li><a href="#minhas-listas">Minhas Listas</a></li>
             </ul>
         </div>
     </nav>
@@ -31,194 +30,139 @@
         </div>
     </div>
 
-    <!-- Banner Principal -->
-    <section id="inicio" class="hero-banner">
-        <div class="banner-content">
-            <div class="banner-text">
-                <h1>Encontre as Melhores Ofertas</h1>
-                <p>Acesse a plataforma de compras com nosso link exclusivo e aproveite as melhores promoções do mercado</p>
-                <a href="https://meli.la/31eTvGq" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
-                    Acessar Plataforma →
-                </a>
-            </div>
-            <div class="banner-image">
-                <div class="banner-icon">📦</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Indicações em Carrossel -->
-    <section id="indicacoes" class="indicacoes-section">
+    <!-- Recomendação de Hoje -->
+    <section id="recomendacao-hoje" class="recommendation-section">
         <div class="container">
-            <h2>Categorias Recomendadas</h2>
-            <p class="section-subtitle">Explore nossas indicações de produtos populares</p>
-            
-            <div class="carousel-container">
-                <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
-                
-                <div class="carousel-wrapper">
-                    <div class="carousel" id="carousel">
-                        <div class="carousel-item">
-                            <div class="item-icon">💻</div>
-                            <h3>Eletrônicos</h3>
-                            <p>Smartphones, notebooks, tablets e acessórios</p>
-                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Ver Ofertas</a>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="item-icon">👕</div>
-                            <h3>Moda</h3>
-                            <p>Roupas, sapatos e acessórios em promoção</p>
-                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Ver Ofertas</a>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="item-icon">🏠</div>
-                            <h3>Casa e Jardim</h3>
-                            <p>Móveis, decoração e itens para sua casa</p>
-                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Ver Ofertas</a>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="item-icon">⚽</div>
-                            <h3>Esportes</h3>
-                            <p>Equipamentos e roupas esportivas</p>
-                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Ver Ofertas</a>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="item-icon">🎮</div>
-                            <h3>Games</h3>
-                            <p>Consoles, jogos e acessórios gamer</p>
-                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Ver Ofertas</a>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="item-icon">📚</div>
-                            <h3>Livros</h3>
-                            <p>Livros, e-readers e material de leitura</p>
-                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Ver Ofertas</a>
+            <div class="recommendation-header">
+                <h2>✨ Recomendação de Hoje</h2>
+                <p class="recommendation-subtitle">Produtos cuidadosamente selecionados para você</p>
+            </div>
+
+            <div class="recommendation-banner">
+                <div class="banner-left">
+                    <div class="product-showcase">
+                        <div class="product-image-placeholder">
+                            <div class="placeholder-icon">🛍️</div>
+                            <p>Produtos em Destaque</p>
                         </div>
                     </div>
                 </div>
-                
-                <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+                <div class="banner-right">
+                    <h3>Confira Nossa Seleção Especial</h3>
+                    <p>Selecionamos os melhores produtos de hoje especialmente para você. Aproveite as ofertas e promoções exclusivas disponíveis agora mesmo.</p>
+                    <div class="banner-buttons">
+                        <a href="https://meli.la/31eTvGq" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
+                            🔗 Ver Recomendação
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <div class="carousel-dots" id="dots"></div>
+            <!-- Preview de Produtos -->
+            <div class="products-preview">
+                <h3>Produtos em Destaque</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="image-placeholder">📱</div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Eletrônicos</h4>
+                            <p>Smartphones, notebooks e acessórios</p>
+                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer" class="product-link">Acessar →</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="image-placeholder">👗</div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Moda e Vestuário</h4>
+                            <p>Roupas, sapatos e acessórios</p>
+                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer" class="product-link">Acessar →</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="image-placeholder">🏠</div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Casa e Decoração</h4>
+                            <p>Móveis, decoração e utensílios</p>
+                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer" class="product-link">Acessar →</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="image-placeholder">🎮</div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Games e Diversão</h4>
+                            <p>Consoles, jogos e acessórios</p>
+                            <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer" class="product-link">Acessar →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Modal de Indicações -->
-    <section class="modal-section">
+    <!-- Minhas Listas de Produtos -->
+    <section id="minhas-listas" class="lists-section">
         <div class="container">
-            <h2>Mais Indicações</h2>
-            <button class="btn btn-secondary" onclick="openModal()">Ver Todas as Categorias</button>
-        </div>
-    </section>
+            <div class="lists-header">
+                <h2>📋 Minhas Listas de Produtos</h2>
+                <p class="lists-subtitle">Coleções organizadas de produtos recomendados</p>
+            </div>
 
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Todas as Categorias</h2>
-            <div class="modal-grid">
-                <div class="modal-item">
-                    <div class="modal-icon">💻</div>
-                    <h3>Eletrônicos</h3>
-                    <p>Smartphones, notebooks, tablets, câmeras e acessórios tecnológicos</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">👕</div>
-                    <h3>Moda</h3>
-                    <p>Roupas, sapatos, bolsas e acessórios para homem, mulher e crianças</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">🏠</div>
-                    <h3>Casa e Jardim</h3>
-                    <p>Móveis, decoração, utensílios de cozinha e itens para jardinagem</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">⚽</div>
-                    <h3>Esportes</h3>
-                    <p>Equipamentos esportivos, roupas, tênis e acessórios para academia</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">🎮</div>
-                    <h3>Games</h3>
-                    <p>Consoles, videogames, jogos e periféricos gamer de todas as marcas</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">📚</div>
-                    <h3>Livros</h3>
-                    <p>Livros físicos, e-readers, audiobooks e revistas de todos os gêneros</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">🍽️</div>
-                    <h3>Alimentos</h3>
-                    <p>Alimentos, bebidas, snacks e produtos de alimentação em geral</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">💄</div>
-                    <h3>Beleza</h3>
-                    <p>Cosméticos, maquiagem, perfumes e produtos de cuidado pessoal</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">🚗</div>
-                    <h3>Automotivo</h3>
-                    <p>Peças, acessórios, produtos de limpeza e manutenção para veículos</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">🐾</div>
-                    <h3>Pets</h3>
-                    <p>Alimentos, brinquedos, acessórios e produtos para cães e gatos</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">👶</div>
-                    <h3>Bebês</h3>
-                    <p>Roupas, brinquedos, móveis e acessórios para bebês e crianças</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
-                </div>
-                <div class="modal-item">
-                    <div class="modal-icon">🎨</div>
-                    <h3>Arte e Artesanato</h3>
-                    <p>Materiais para arte, pintura, escultura e projetos de artesanato</p>
-                    <a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Explorar</a>
+            <div class="lists-grid">
+                <div class="list-card">
+                    <div class="list-image">
+                        <div class="list-icon">⭐</div>
+                    </div>
+                    <div class="list-content">
+                        <h3>Lista Especial</h3>
+                        <p>Minha seleção pessoal dos melhores produtos disponíveis. Confira as ofertas e promoções que separei para você.</p>
+                        <a href="https://meli.la/2p8CZ9z" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                            Acessar Lista
+                        </a>
+                    </div>
                 </div>
             </div>
+
+            <div class="cta-section">
+                <h3>Não encontrou o que procura?</h3>
+                <p>Explore todas as minhas recomendações e listas de produtos</p>
+                <a href="https://meli.la/2p8CZ9z" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    Ver Todas as Listas →
+                </a>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- Footer -->
-    <footer id="contato" class="footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Sobre</h4>
-                    <p>Um portal dedicado a trazer as melhores ofertas para você. Todos os links neste site são links de afiliado.</p>
+                    <h4>Sobre Este Site</h4>
+                    <p>Um portal dedicado a compartilhar minhas melhores recomendações de produtos e ofertas. Todos os links neste site são links de afiliado.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Links Rápidos</h4>
                     <ul>
-                        <li><a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Acessar Plataforma</a></li>
-                        <li><a href="#indicacoes">Categorias</a></li>
-                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#recomendacao-hoje">Recomendação de Hoje</a></li>
+                        <li><a href="#minhas-listas">Minhas Listas</a></li>
+                        <li><a href="https://meli.la/31eTvGq" target="_blank" rel="noopener noreferrer">Recomendação Principal</a></li>
                     </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Informações</h4>
-                    <p>Email: contato@ofertasml.com</p>
-                    <p><small><strong>Divulgação:</strong> Este site contém links de afiliado. Ao clicar em um link e fazer uma compra, podemos receber uma comissão sem custo adicional para você.</small></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Ofertas. Todos os direitos reservados.</p>
-                <p><small><strong>Aviso Legal:</strong> Este é um site de afiliado. Não somos proprietários ou operadores da plataforma. Todos os nomes, marcas e logos são propriedade de seus respectivos proprietários.</small></p>
+                <p>&copy; 2024 Recomendações. Todos os direitos reservados.</p>
+                <p><small><strong>Divulgação:</strong> Este site contém links de afiliado. Ao clicar em um link e fazer uma compra, podemos receber uma comissão sem custo adicional para você. | <strong>Aviso Legal:</strong> Este é um site de afiliado. Não somos proprietários ou operadores da plataforma.</small></p>
             </div>
         </div>
     </footer>
