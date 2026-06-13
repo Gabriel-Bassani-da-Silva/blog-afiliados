@@ -1,11 +1,19 @@
-// Dados de produtos com imagens que funcionam
+// Dados de produtos REAIS extraídos do seu perfil de afiliado
 const productsData = [
+    {
+        name: "Principia Kit Antiacne Avançado",
+        price: "R$ 261",
+        priceOriginal: "R$ 290",
+        brand: "PRINCIPIA",
+        image: "https://http2.mlstatic.com/D_Q_NP_2X_623712-MLA99399240295_112025-V.webp",
+        link: "https://meli.la/31eTvGq"
+    },
     {
         name: "Principia Kit Anti-acne Essencial Gh",
         price: "R$ 231",
         priceOriginal: "R$ 231",
         brand: "PRINCIPIA",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f5f5f5' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EPrincipia Kit%3C/text%3E%3C/svg%3E",
+        image: "https://http2.mlstatic.com/D_Q_NP_2X_695293-MLA111341802185_052026-T.webp",
         link: "https://meli.la/31eTvGq"
     },
     {
@@ -13,23 +21,15 @@ const productsData = [
         price: "R$ 159,30",
         priceOriginal: "R$ 177",
         brand: "PRINCIPIA",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f5f5f5' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EPrincipia Trio%3C/text%3E%3C/svg%3E",
+        image: "https://http2.mlstatic.com/D_Q_NP_2X_922978-MLA98412487385_112025-T.webp",
         link: "https://meli.la/31eTvGq"
     },
     {
-        name: "Kit Skincare Calming Petrizi",
+        name: "Kit Skincare Calming Petrizi (4 Produtos)",
         price: "R$ 399",
         priceOriginal: "R$ 399",
         brand: "PETRIZI",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f5f5f5' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EPetrizi Skincare%3C/text%3E%3C/svg%3E",
-        link: "https://meli.la/31eTvGq"
-    },
-    {
-        name: "Principia Kit Completo Para Pele Sensível",
-        price: "R$ 84,02",
-        priceOriginal: "R$ 137",
-        brand: "PRINCIPIA",
-        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f5f5f5' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EPrincipia Completo%3C/text%3E%3C/svg%3E",
+        image: "https://http2.mlstatic.com/D_Q_NP_2X_882599-MLB111201448754_052026-T.webp",
         link: "https://meli.la/31eTvGq"
     }
 ];
@@ -85,7 +85,7 @@ function loadProducts() {
         bannerImage.alt = productsData[0].name;
         bannerImage.style.display = 'block';
         
-        console.log('Imagem do banner definida');
+        console.log('Imagem do banner definida:', productsData[0].image);
     }
 }
 
@@ -96,7 +96,7 @@ function createProductCard(product) {
     
     card.innerHTML = `
         <div class="product-image">
-            <img src="${product.image}" alt="${product.name}" class="product-img">
+            <img src="${product.image}" alt="${product.name}" class="product-img" loading="lazy">
         </div>
         <div class="product-info">
             <span class="product-brand">${product.brand}</span>
