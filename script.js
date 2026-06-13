@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // Função para carregar produtos
 function loadProducts() {
     const productsGrid = document.getElementById('productsGrid');
-    const mainShowcase = document.getElementById('mainProductShowcase');
     
     if (!productsGrid) return;
     
@@ -63,11 +62,37 @@ function loadProducts() {
             }, index * 100);
         });
         
-        // Atualizar showcase principal
-        if (mainShowcase && productsData.length > 0) {
-            updateMainShowcase(productsData[0]);
+        // Atualizar banner principal com imagem real
+        if (productsData.length > 0) {
+            updateMainBanner(productsData[0]);
         }
     }, 800);
+}
+
+// Atualizar banner principal com imagem real
+function updateMainBanner(product) {
+    const bannerImage = document.getElementById('bannerProductImage');
+    const placeholder = document.querySelector('.product-image-placeholder');
+    
+    if (!bannerImage || !placeholder) return;
+    
+    // Definir a imagem
+    bannerImage.src = product.image;
+    bannerImage.style.display = 'block';
+    
+    // Esconder o placeholder quando a imagem carregar
+    bannerImage.onload = function() {
+        const placeholderIcon = placeholder.querySelector('.placeholder-icon');
+        const placeholderText = placeholder.querySelector('p');
+        
+        if (placeholderIcon) placeholderIcon.style.display = 'none';
+        if (placeholderText) placeholderText.style.display = 'none';
+    };
+    
+    // Fallback se a imagem não carregar
+    bannerImage.onerror = function() {
+        bannerImage.style.display = 'none';
+    };
 }
 
 // Criar card de produto
@@ -91,23 +116,6 @@ function createProductCard(product) {
     `;
     
     return card;
-}
-
-// Atualizar showcase principal
-function updateMainShowcase(product) {
-    const showcase = document.getElementById('mainProductShowcase');
-    if (!showcase) return;
-    
-    showcase.innerHTML = `
-        <div class="product-showcase-item">
-            <img src="${product.image}" alt="${product.name}" class="showcase-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22300%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%23999%22%3EProduto em Destaque%3C/text%3E%3C/svg%3E'">
-            <div class="showcase-info">
-                <p class="showcase-brand">${product.brand}</p>
-                <p class="showcase-name">${product.name}</p>
-                <p class="showcase-price">${product.price}</p>
-            </div>
-        </div>
-    `;
 }
 
 // Smooth scroll para links internos
