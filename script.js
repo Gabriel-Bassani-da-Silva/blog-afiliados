@@ -1,12 +1,11 @@
-// Dados de produtos simulados (em produção, isso viria de uma API)
-// Estes são os produtos que aparecem no seu perfil de afiliado
+// Dados de produtos com imagens que funcionam
 const productsData = [
     {
         name: "Principia Kit Anti-acne Essencial Gh",
         price: "R$ 231",
         priceOriginal: "R$ 231",
         brand: "PRINCIPIA",
-        image: "https://http2.mlstatic.com/D_Q_NP_2X_695293-MLA111341802185_052026-T.webp",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f5f5f5' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EPrincipia Kit%3C/text%3E%3C/svg%3E",
         link: "https://meli.la/31eTvGq"
     },
     {
@@ -14,7 +13,7 @@ const productsData = [
         price: "R$ 159,30",
         priceOriginal: "R$ 177",
         brand: "PRINCIPIA",
-        image: "https://http2.mlstatic.com/D_Q_NP_2X_922978-MLA98412487385_112025-T.webp",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f5f5f5' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EPrincipia Trio%3C/text%3E%3C/svg%3E",
         link: "https://meli.la/31eTvGq"
     },
     {
@@ -22,7 +21,7 @@ const productsData = [
         price: "R$ 399",
         priceOriginal: "R$ 399",
         brand: "PETRIZI",
-        image: "https://http2.mlstatic.com/D_Q_NP_2X_882599-MLB111201448754_052026-T.webp",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f5f5f5' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EPetrizi Skincare%3C/text%3E%3C/svg%3E",
         link: "https://meli.la/31eTvGq"
     },
     {
@@ -30,13 +29,14 @@ const productsData = [
         price: "R$ 84,02",
         priceOriginal: "R$ 137",
         brand: "PRINCIPIA",
-        image: "https://http2.mlstatic.com/D_Q_NP_2X_761257-MLA108807654621_032026-T.webp",
+        image: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23f5f5f5' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EPrincipia Completo%3C/text%3E%3C/svg%3E",
         link: "https://meli.la/31eTvGq"
     }
 ];
 
 // Carregar produtos ao inicializar
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Iniciando carregamento de produtos...');
     loadProducts();
     setupScrollTracking();
     console.log('Site de Recomendações carregado com sucesso!');
@@ -45,54 +45,48 @@ document.addEventListener('DOMContentLoaded', () => {
 // Função para carregar produtos
 function loadProducts() {
     const productsGrid = document.getElementById('productsGrid');
-    
-    if (!productsGrid) return;
-    
-    // Simular delay de carregamento
-    setTimeout(() => {
-        productsGrid.innerHTML = '';
-        
-        productsData.forEach((product, index) => {
-            const productCard = createProductCard(product);
-            productsGrid.appendChild(productCard);
-            
-            // Animar entrada
-            setTimeout(() => {
-                productCard.style.animation = 'fadeInUp 0.5s ease forwards';
-            }, index * 100);
-        });
-        
-        // Atualizar banner principal com imagem real
-        if (productsData.length > 0) {
-            updateMainBanner(productsData[0]);
-        }
-    }, 800);
-}
-
-// Atualizar banner principal com imagem real
-function updateMainBanner(product) {
     const bannerImage = document.getElementById('bannerProductImage');
     const placeholder = document.querySelector('.product-image-placeholder');
     
-    if (!bannerImage || !placeholder) return;
+    console.log('Carregando produtos...');
     
-    // Definir a imagem
-    bannerImage.src = product.image;
-    bannerImage.style.display = 'block';
+    if (!productsGrid) {
+        console.error('Grid de produtos não encontrado');
+        return;
+    }
     
-    // Esconder o placeholder quando a imagem carregar
-    bannerImage.onload = function() {
+    // Limpar skeleton loading
+    productsGrid.innerHTML = '';
+    
+    // Adicionar produtos ao grid
+    productsData.forEach((product, index) => {
+        const productCard = createProductCard(product);
+        productsGrid.appendChild(productCard);
+        
+        // Animar entrada
+        setTimeout(() => {
+            productCard.style.animation = 'fadeInUp 0.5s ease forwards';
+        }, index * 100);
+    });
+    
+    // Atualizar banner principal com primeiro produto
+    if (productsData.length > 0 && bannerImage) {
+        console.log('Atualizando banner com produto:', productsData[0].name);
+        
+        // Remover placeholder
         const placeholderIcon = placeholder.querySelector('.placeholder-icon');
         const placeholderText = placeholder.querySelector('p');
         
         if (placeholderIcon) placeholderIcon.style.display = 'none';
         if (placeholderText) placeholderText.style.display = 'none';
-    };
-    
-    // Fallback se a imagem não carregar
-    bannerImage.onerror = function() {
-        bannerImage.style.display = 'none';
-    };
+        
+        // Definir imagem
+        bannerImage.src = productsData[0].image;
+        bannerImage.alt = productsData[0].name;
+        bannerImage.style.display = 'block';
+        
+        console.log('Imagem do banner definida');
+    }
 }
 
 // Criar card de produto
@@ -102,7 +96,7 @@ function createProductCard(product) {
     
     card.innerHTML = `
         <div class="product-image">
-            <img src="${product.image}" alt="${product.name}" class="product-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2214%22 fill=%22%23999%22%3EProduto%3C/text%3E%3C/svg%3E'">
+            <img src="${product.image}" alt="${product.name}" class="product-img">
         </div>
         <div class="product-info">
             <span class="product-brand">${product.brand}</span>
@@ -135,7 +129,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.addEventListener('click', function(e) {
     if (e.target.tagName === 'A' && e.target.href.includes('meli.la')) {
         console.log('Link de afiliado clicado:', e.target.href);
-        // Aqui você pode adicionar código de analytics
         if (typeof gtag !== 'undefined') {
             gtag('event', 'affiliate_click', {
                 'link': e.target.href
